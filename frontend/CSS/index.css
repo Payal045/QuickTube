@@ -1,0 +1,68 @@
+/* General Styles */
+:root {
+      --yt-red: #ff0000;
+      --yt-bg: #f9f9f9;
+    }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #1c1b1b, #131212); /* Gradient background */
+  color: #fff;
+  display: flex;
+}
+
+header {
+  text-align: center;
+  padding: 10px 0;
+  background-color: black;
+  color: #fff;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+#video-url {
+      border-radius: 2rem;
+      padding: 0.75rem 1.2rem;
+      border: 1px solid #ddd;
+      width: 100%;
+    }
+
+    /* YouTube‑red button */
+    #summarize-btn {
+      background: var(--yt-red);
+      color: #fff;
+      border: none;
+      border-radius: 2rem;
+      padding: 0.7rem 1.6rem;
+      font-weight: 600;
+    }
+
+    #summarize-btn:hover {
+      background: #e60000;
+    }
+
+    /* summary textarea */
+    #summary {
+      margin-top: 180px;
+      width: 100%;
+      resize: vertical;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      border: 1px solid #ddd;
+      background: #fff;
+    }
+
+    /* keep the two columns full height & aligned */
+    .yt-column {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuickTube</title>
+  <link rel="stylesheet" href="../CSS/index.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+  <nav class="navbar navbar-expand-lg" style="background-color: #212121;">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+
+      <!-- Left side: Brand with Icon -->
+      <div class="d-flex align-items-center">
+        <svg
+          width="32"
+          height="24"
+          viewBox="0 0 24 16"
+          xmlns="http://www.w3.org/2000/svg"
+          class="me-2"
+          style="vertical-align: middle;"
+        >
+          <rect x="0" y="0" width="24" height="16" rx="3" fill="#FF0000"></rect>
+          <polygon points="10,4 18,8 10,12" fill="#FFFFFF"></polygon>
+        </svg>
+        <span class="navbar-brand mb-0 h1 fw-bold fs-2 text-white">QuickTube</span>
+      </div>
+
+      <!-- Right side: Navigation Links -->
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link fs-5 text-white" aria-current="page" href="history.html">History</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fs-5 text-white" href="profile.html">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fs-5 text-white" href="help.html">Help</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fs-5 text-white" href="aboutus.html">About Us</a>
+        </li>
+      </ul>
+
+    </div>
+  </nav>
+</header>
+
+  <!-- Main Content -->
+  <div class="container-fluid py-4">
+    <div class="row g-4">
+      <!-- ――― Left Half ――― -->
+      <div class="col-lg-6 yt-column">
+        <h2 class="fw-bold" style="margin-top: 120px; color: white;">Enter a YouTube URL</h2>
+
+        <!-- URL input + button in one line -->
+        <div class="d-flex gap-2">
+          <input
+            type="text"
+            id="video-url"
+            placeholder="Paste YouTube URL here…"
+          />
+          <button id="summarize-btn">Summarize</button>
+        </div>
+
+        <!-- Video preview (hidden by default) -->
+        <div id="video-preview" class="ratio ratio-16x9 mt-3 d-none">
+          <!-- iframe will be injected here -->
+        </div>
+      </div>
+
+      <!-- ――― Right Half ――― -->
+      <div class="col-lg-6 yt-column">
+        <h2 class="fw-bold">Summary</h2>
+
+        <!-- Textarea for full summary -->
+        <textarea
+          id="summary"
+          placeholder="Your summary will appear here…"
+          rows="16"
+          ></textarea>
+
+        <!-- Bullet points (if you decide to append them separately) -->
+        <ul id="summary-points" class="list-group"></ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const btn = document.getElementById("summarize-btn");
+    const urlInput = document.getElementById("video-url");
+    const preview = document.getElementById("video-preview");
+
+    btn.addEventListener("click", () => {
+      const url = urlInput.value.trim();
+      // Simple regex to extract YouTube video ID
+      const match = url.match(
+        /(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([^\s&?/]+)/i
+      );
+      if (!match) return alert("Please enter a valid YouTube URL.");
+
+      const videoId = match[1];
+      preview.innerHTML = `
+        <iframe
+          src="https://www.youtube.com/embed/${videoId}"
+          title="YouTube video"
+          allowfullscreen
+        ></iframe>`;
+      preview.classList.remove("d-none");
+
+      // TODO: Call your backend to generate the summary
+    });
+  </script>
+  <script src="../JS/script.js"></script>
+</body>
+</html>
+
+

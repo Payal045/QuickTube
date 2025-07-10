@@ -1,0 +1,131 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #121212;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Container */
+.container {
+  background-color: #1e1e1e;
+  padding: 40px 30px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 450px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.6s ease;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Headings */
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  color: #FF0000;
+  margin-bottom: 10px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #f2f2f2;
+  margin-bottom: 30px;
+}
+
+/* Form Structure */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 6px;
+}
+
+input {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 1rem;
+  border: 1.5px solid #444;
+  border-radius: 8px;
+  background-color: #2c2c2c;
+  color: white;
+  transition: 0.3s;
+}
+
+input:focus {
+  border-color: #FF0000;
+  outline: none;
+  box-shadow: 0 0 8px rgba(255, 0, 0, 0.4);
+}
+
+/* Sign Up Button */
+.signup-btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #FF0000;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.signup-btn:hover {
+  background-color: #e60000;
+}
+
+/* Error Message */
+#errorMessage {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #ff4d4d;
+}
+
+/* Responsive */
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 30px 20px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+}

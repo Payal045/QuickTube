@@ -1,0 +1,109 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #121212;
+  color: white;
+  padding: 40px 20px;
+  min-height: 100vh;
+}
+
+/* Heading */
+h1 {
+  text-align: center;
+  font-size: 2.2rem;
+  color: #FF0000;
+  margin-bottom: 30px;
+}
+
+/* Loader */
+.loader {
+  text-align: center;
+  color: #FF0000;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+th, td {
+  padding: 16px 14px;
+  text-align: left;
+}
+
+thead {
+  background-color: #2a2a2a;
+}
+
+th {
+  color: #FF0000;
+  font-size: 1rem;
+  font-weight: bold;
+  border-bottom: 2px solid #444;
+}
+
+tbody tr {
+  border-bottom: 1px solid #333;
+  transition: background-color 0.3s ease;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #232323;
+}
+
+tbody tr:hover {
+  background-color: #333;
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tr {
+    margin-bottom: 1rem;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    padding: 12px;
+  }
+
+  td {
+    padding: 12px 10px;
+    border-bottom: 1px solid #333;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  td::before {
+    position: absolute;
+    left: 15px;
+    width: 40%;
+    white-space: nowrap;
+    font-weight: bold;
+    color: #FF0000;
+  }
+
+  td:nth-of-type(1)::before { content: "#"; }
+  td:nth-of-type(2)::before { content: "Search Query"; }
+  td:nth-of-type(3)::before { content: "Date"; }
+}

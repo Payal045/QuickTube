@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | QuickTube</title>
+  <link rel="stylesheet" href="../CSS/login.css">
+  
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="d-flex align-items-center">
+        <svg
+          width="32"
+          height="24"
+          viewBox="0 0 24 16"
+          xmlns="http://www.w3.org/2000/svg"
+          class="me-2"
+          style="vertical-align: middle;"
+        >
+          <rect x="0" y="0" width="24" height="16" rx="3" fill="#FF0000"></rect>
+          <polygon points="10,4 18,8 10,12" fill="#FFFFFF"></polygon>
+        </svg>
+        <span class="navbar-brand mb-0 h1 fw-bold fs-2 text-white">QuickTube</span>
+      </div>
+    </header>
+    <main>
+      <section id="login-box">
+        <h2>Login</h2>
+        <form id="login-form">
+          <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Enter your email" required />
+          </div>
+          <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" placeholder="Enter your password" required />
+          </div>
+          <button type="button" class="login-button">Log In</button>
+        </form>
+        <p id="message" style="color: red;"></p>
+        <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
+      </section>
+    </main>
+  </div>
+  <script src="../JS/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+
+    :root {
+      --yt-red: #ff0000;
+      --yt-bg: #f9f9f9;
+      --yt-dark: #212121;
+    }
+
+    body {
+      background-color: var(--yt-bg);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    header {
+      background-color: var(--yt-dark);
+      padding: 1rem 2rem;
+    }
+
+    header h1 {
+      color: #fff;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    nav a {
+      color: #fff;
+      margin-right: 1rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: var(--yt-red);
+    }
+
+    h2 {
+      color: var(--yt-red);
+      margin-top: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    footer {
+      background-color: var(--yt-dark);
+      color: #aaa;
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 4rem;
+    }
+
+    .contact-section strong {
+      color: var(--yt-dark);
+    }
+
+    .content-card {
+      background-color: #fff;
+      border-radius: 0.75rem;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 576px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      nav a {
+        display: inline-block;
+        margin-bottom: 0.5rem;
+      }
+
+      .content-card {
+        padding: 1rem;
+      }
+    }
