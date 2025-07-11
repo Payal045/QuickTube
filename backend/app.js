@@ -24,7 +24,8 @@ app.use(
   cors({
     origin: [
       "http://127.0.0.1:5500", // Allow this origin
-      "http://localhost:5500"   // Also allow this origin
+      "http://localhost:5500" ,  // Also allow this origin
+      "https://quicktubef.onrender.com"
     ], // Allow frontend URL from environment variable or default to localhost
     methods: ["GET", "POST", "PUT", "DELETE"], // Define allowed HTTP methods
     allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers for requests
