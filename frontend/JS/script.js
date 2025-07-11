@@ -6,12 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const summaryPoints = document.getElementById('summary-points');
 
   const API  = 'http://127.0.0.1:5000/api';
-  const jwt  = localStorage.getItem('jwt');        // keep naming consistent
+  const jwt  = localStorage.getItem('jwt');  // Can be used for future auth routes
 
   /* ---------- main click ---------- */
   summarizeBtn.addEventListener('click', async () => {
     const videoUrl = urlInput.value.trim();
-
     if (!videoUrl) {
       alert('Please enter a YouTube video URL');
       return;
@@ -19,35 +18,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // UI feedback
     summarizeBtn.disabled = true;
-    summaryArea.value     = 'Loading summary…';
+    summaryArea.value = '';
+    summaryArea.placeholder = '⏳ Fetching summary...';
     summaryPoints.innerHTML = '';
 
     try {
-      const res = await fetch(`${API}/summary/summarize`, {
-        method : 'POST',
+      const response = await fetch(`${API}/summary/summarize`, {
+        method: 'POST',
         headers: {
-          'Content-Type' : 'application/json',
+          'Content-Type': 'application/json',
           ...(jwt ? { Authorization: `Bearer ${jwt}` } : {})
         },
         body: JSON.stringify({ videoUrl })
       });
 
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.message || `HTTP ${res.status}`);
+      const data = await response.json();
 
-      if (!data.summary) throw new Error('Summary missing in response');
+      if (!response.ok) {
+        throw new Error(data.error || `HTTP ${response.status}`);
+      }
 
-      /* ---------- render result ---------- */
+      if (!data.summary) {
+        throw new Error('No summary found in response.');
+      }
+
+      // Display summary
       summaryArea.value = data.summary;
 
-      // Optional: if backend returns an array `keyPoints`
+      // Display optional key points (if added later)
       if (Array.isArray(data.keyPoints)) {
         data.keyPoints.forEach(addToKeyPoints);
       }
 
     } catch (err) {
-      console.error('Summarize error:', err);
-      summaryArea.value = 'Error fetching summary. Please try again.';
+      console.error('❌ Summarize Error:', err);
+      summaryArea.value = '';
+      summaryArea.placeholder = '❌ Error fetching summary. Try again.';
     } finally {
       summarizeBtn.disabled = false;
     }
@@ -60,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
     summaryPoints.appendChild(li);
   }
 
-  /* ---------- dropdown behaviour ---------- */
+  /* ---------- dropdown behavior ---------- */
   const menuBtn = document.querySelector('.menu-button');
   const dropdown = document.querySelector('.dropdown-content');
 

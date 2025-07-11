@@ -2,7 +2,7 @@ require('dotenv').config(); // Load environment variables at the top
 
 const express = require('express'); // Import Express
 const cors = require('cors'); // Import CORS middleware
-const connectDB = require('./config/db'); // Import the database connection function
+const { connectDB, store } = require("./config/db"); // Import the database connection function
 const authRoutes = require('./routes/authRoutes'); // Import authentication routes
 const summaryRoutes = require('./routes/summaryRoutes'); // Import summarization routes
 const historyRoutes = require('./routes/historyRoutes'); // Import history routes
@@ -39,7 +39,7 @@ app.use("/pam", (req, res) => {
   return res.status(200).json({ "message": "pampam" });
 });
 app.use('/api/auth',authMiddleware, authRoutes);           // Authentication routes
-app.use('/api/summary',authMiddleware, summaryRoutes);     // Summarization routes
+app.use('/api/summary', summaryRoutes);     // Summarization routes
 app.use('/api/history', authMiddleware,historyRoutes);     // History routes
 
 // General Error Handler
