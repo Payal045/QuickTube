@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const summaryArea   = document.getElementById('summary');
   const summaryPoints = document.getElementById('summary-points');
 
-  const API  = 'https://quicktube-7d85.onrender.com';
+  const API  = 'https://quicktube-7d85.onrender.com/api';
   const jwt  = localStorage.getItem('jwt');  // Can be used for future auth routes
 
   /* ---------- main click ---------- */
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     summaryPoints.innerHTML = '';
 
     try {
-      const response = await fetch(`${API}/api/summary/summarize`, {
+      const response = await fetch(`${API}/summary/summarize`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
