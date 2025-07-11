@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     summaryPoints.innerHTML = '';
 
     try {
-      const response = await fetch(`${API}/summary/summarize`, {
+      const response = await fetch(`${API}/api/summary/summarize`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
