@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const summaryArea   = document.getElementById('summary');
   const summaryPoints = document.getElementById('summary-points');
 
-  const API  = 'http://127.0.0.1:5000/api';
+  const API  = 'https://quicktube-7d85.onrender.com';
   const jwt  = localStorage.getItem('jwt');  // Can be used for future auth routes
 
   /* ---------- main click ---------- */
